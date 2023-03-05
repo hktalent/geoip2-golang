@@ -9,8 +9,12 @@ package geoip2
 
 import (
 	"fmt"
-	maxminddb "github.com/hktalent/maxminddb-golang"
+	util "github.com/hktalent/go-utils"
+	"github.com/oschwald/maxminddb-golang"
+	"log"
 	"net"
+	"os"
+	"sync"
 )
 
 // The Enterprise struct corresponds to the data in the GeoIP2 Enterprise
@@ -413,4 +417,56 @@ func (r *Reader) Metadata() maxminddb.Metadata {
 // resources to the system.
 func (r *Reader) Close() error {
 	return r.mmdbReader.Close()
+}
+
+var oOne = sync.Once{}
+
+func GetIpsCity(aIps ...string) (chan *City, error) {
+	var c1 = make(chan string, len(aIps))
+	go func() {
+		for _, x := range aIps {
+			c1 <- x
+		}
+	}()
+	return GetIpsCity4Chan(c1)
+}
+
+func GetIpsCity4Chan(aIps chan string) (chan *City, error) {
+	city := make(chan *City)
+	if szPwd, err := os.Getwd(); nil != err {
+		return city, err
+	} else {
+		db, err := Open(szPwd + "/config/MaxMind-DB/test-data/GeoIP2-City-Test.mmdb")
+		if err != nil {
+			return city, err
+		}
+		oOne.Do(util.DoInitAll)
+		go func() {
+			defer db.Close()
+			close(aIps)
+			var wg sync.WaitGroup
+			for x := range aIps {
+				wg.Add(1)
+				go func(s11 string) {
+					defer wg.Done()
+					ip := net.ParseIP(s11)
+					record, err := db.City(ip)
+					if err != nil {
+						log.Println(err)
+						return
+					}
+					city <- record
+				}(x)
+			}
+			wg.Wait()
+			close(city)
+		}()
+	}
+	return city, nil
+}
+
+func Close() {
+	util.Wg.Wait()
+	util.CloseAll()
+	util.CloseLogBigDb()
 }
