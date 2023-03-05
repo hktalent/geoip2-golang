@@ -1,27 +1,30 @@
 # GeoIP2 Reader for Go #
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/oschwald/geoip2-golang)](https://pkg.go.dev/github.com/oschwald/geoip2-golang)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/hktalent/geoip2-golang)](https://pkg.go.dev/github.com/hktalent/geoip2-golang)
 
 This library reads MaxMind [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/)
 and [GeoIP2](http://www.maxmind.com/en/geolocation_landing) databases.
 
 This library is built using
-[the Go maxminddb reader](https://github.com/oschwald/maxminddb-golang).
+[the Go maxminddb reader](https://github.com/hktalent/maxminddb-golang).
 All data for the database record is decoded using this library. If you only
 need several fields, you may get superior performance by using maxminddb's
 `Lookup` directly with a result struct that only contains the required fields.
-(See [example_test.go](https://github.com/oschwald/maxminddb-golang/blob/main/example_test.go)
+(See [example_test.go](https://github.com/hktalent/maxminddb-golang/blob/main/example_test.go)
 in the maxminddb repository for an example of this.)
 
 ## Installation ##
 
 ```
-go get github.com/oschwald/geoip2-golang
+go get github.com/hktalent/geoip2-golang
 ```
 
 ## Usage ##
-
-[See GoDoc](http://godoc.org/github.com/oschwald/geoip2-golang) for
+update all submodule
+```
+/usr/bin/git -c protocol.version=2 submodule update --remote --force --recursive
+```
+[See GoDoc](http://godoc.org/github.com/hktalent/geoip2-golang) for
 documentation and examples.
 
 ## Example ##
@@ -34,7 +37,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/oschwald/geoip2-golang"
+	"github.com/hktalent/geoip2-golang"
 )
 
 func main() {

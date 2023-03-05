@@ -4,14 +4,12 @@
 // The structs provided by this package match the internal structure of
 // the data in the MaxMind databases.
 //
-// See github.com/oschwald/maxminddb-golang for more advanced used cases.
+// See github.com/hktalent/maxminddb-golang for more advanced used cases.
 package geoip2
 
 import (
 	"fmt"
 	"net"
-
-	"github.com/oschwald/maxminddb-golang"
 )
 
 // The Enterprise struct corresponds to the data in the GeoIP2 Enterprise
