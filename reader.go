@@ -9,6 +9,7 @@ package geoip2
 
 import (
 	"fmt"
+	maxminddb "github.com/hktalent/maxminddb-golang"
 	"net"
 )
 

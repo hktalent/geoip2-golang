@@ -36,11 +36,12 @@ import (
 	"fmt"
 	"log"
 	"net"
-
+	util "github.com/hktalent/go-utils"
 	"github.com/hktalent/geoip2-golang"
 )
 
 func main() {
+	util.DoInitAll()
 	db, err := geoip2.Open("GeoIP2-City.mmdb")
 	if err != nil {
 		log.Fatal(err)
@@ -67,6 +68,9 @@ func main() {
 	// ISO country code: GB
 	// Time zone: Europe/London
 	// Coordinates: 51.5142, -0.0931
+	util.Wg.Wait()
+	util.CloseAll()
+	util.CloseLogBigDb()
 }
 
 ```
