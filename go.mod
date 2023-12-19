@@ -2,7 +2,11 @@ module github.com/hktalent/geoip2-golang
 
 go 1.19
 
-require github.com/stretchr/testify v1.8.2
+require (
+	github.com/hktalent/go-utils v0.0.0-20230303035343-876e9ba3b8d6
+	github.com/oschwald/maxminddb-golang v1.10.0
+	github.com/stretchr/testify v1.8.2
+)
 
 require (
 	github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96 // indirect
@@ -36,7 +40,6 @@ require (
 	github.com/hbakhtiyor/strsim v0.0.0-20190107154042-4d2bbb273edf // indirect
 	github.com/hktalent/PipelineHttp v0.0.0-20230218041433-381be673770a // indirect
 	github.com/hktalent/go-update v0.0.0-20230103083644-512a71e58edc // indirect
-	github.com/hktalent/go-utils v0.0.0-20230303035343-876e9ba3b8d6 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -60,7 +63,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/nwaples/rardecode v1.1.3 // indirect
 	github.com/onsi/ginkgo/v2 v2.8.4 // indirect
-	github.com/oschwald/maxminddb-golang v1.10.0 // indirect
 	github.com/panjf2000/ants/v2 v2.7.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.7 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
@@ -99,15 +101,16 @@ require (
 	github.com/tklauser/go-sysconf v0.3.11 // indirect
 	github.com/tklauser/numcpus v0.6.0 // indirect
 	github.com/ulikunitz/xz v0.5.11 // indirect
+	github.com/wsxiaoys/terminal v0.0.0-20160513160801-0940f3fc43a0 // indirect
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
 	github.com/xtaci/kcp-go v5.4.20+incompatible // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
-	golang.org/x/crypto v0.6.0 // indirect
+	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/exp v0.0.0-20230224173230-c95f2b4c22f2 // indirect
 	golang.org/x/mod v0.8.0 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
+	golang.org/x/net v0.10.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.6.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/djherbis/times.v1 v1.3.0 // indirect
